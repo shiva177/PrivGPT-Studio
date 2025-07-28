@@ -39,6 +39,38 @@ cp .env.example .env   # For Linux/macOS. Use `copy .env.example .env` on Window
 
 
 Backend(server/.env)
+
+1. **`DBURL (Mongo URL)`**
+
+   - **Description:** The MongoDB connection string.
+   - **How to Obtain:**
+
+     1. Go to MongoDB Atlas and sign up or log in.
+     2. Create a new cluster if you don't have one already.
+     3. Navigate to Database Access and create a new database user with the appropriate permissions (e.g., readWrite).
+     4. In the Network Access tab, allow connections from your IP address (or use 0.0.0.0/0 for all IPs for testing).
+     5. Go to Clusters, click on Connect, and select Connect your application.
+     6. Copy the connection string provided (it should look like `mongodb+srv://<username>: <password>@cluster0.mongodb.net/test?retryWrites=true&w=majority`).
+     7. Replace <username> and <password> with the credentials you created in step 3.
+     8. Set the DBURL variable in your env file with the full MongoDB Atlas URL.
+
+     For a local MongoDB setup, you can install MongoDB locally and use
+     `mongodb://localhost:27017/your-database-name`
+
+2. **`GEMINI_API_KEY`**
+- **Description:** The API key used to authenticate requests to Google's Gemini API (also known as Google AI Studio or Generative AI API).
+
+- **How to Obtain:**
+
+   1. Visit Google AI Studio and log in with your Google account.
+   2. Click on the "Get API Key" or navigate to Google Cloud Console.
+   3. Create a new project or use an existing one.
+   4. Enable the "Generative Language API" from the API Library.
+   5. Search for “Generative Language API”.
+   6. Go to APIs & Services > Credentials from the left sidebar.
+   7. Click “+ Create Credentials” → select API Key.
+   8. Copy the newly generated key.
+
 ```bash
 MONGODB_URL=mongodb://localhost:27017/privgpt
 GEMINI_API_KEY=your_gemini_api_key_here
